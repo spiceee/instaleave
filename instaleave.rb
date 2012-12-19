@@ -26,7 +26,7 @@ class Instaleave < Sinatra::Base
 
   get "/feed" do
     client = Instagram.client(:access_token => session[:access_token])
-    max_id = params[:max_id] || nil
+    max_id = params[:max_id]
 
     feed = client.user_recent_media({:count => 60, :max_id => max_id})
     max_id = feed['pagination']['next_max_id']
