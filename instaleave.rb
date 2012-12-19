@@ -2,12 +2,12 @@ class Instaleave < Sinatra::Base
 
   enable :sessions
 
-  CALLBACK_URL = "http://localhost:3001/redirect"
-  MEDIA_DIR = "./media/"
+  CALLBACK_URL = 'http://localhost:3001/redirect'
+  MEDIA_DIR = './media/'
 
   Instagram.configure do |config|
-    config.client_id = ""
-    config.client_secret = ""
+    config.client_id = ''
+    config.client_secret = ''
   end
 
   get "/" do
@@ -29,12 +29,12 @@ class Instaleave < Sinatra::Base
     max_id = params[:max_id] || nil
 
     feed = client.user_recent_media({:count => 60, :max_id => max_id})
-    max_id = feed["pagination"]["next_max_id"]
+    max_id = feed['pagination']['next_max_id']
 
-    html = "<h1>saving pics</h1>"
+    html = '<h1>saving pics</h1>'
 
     unless max_id
-      html << "<h2>... all done</h2>"
+      html << '<h2>... all done</h2>'
       return html
     end
     
@@ -50,7 +50,7 @@ class Instaleave < Sinatra::Base
     puts "saving #{url}"
     basename = url.split('/').last
     response = @http.get(url)
-    open(MEDIA_DIR + basename, "wb") {|f| f << response.body }
+    open(MEDIA_DIR + basename, 'wb') {|f| f << response.body }
   end
 
 end
