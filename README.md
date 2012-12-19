@@ -10,6 +10,7 @@ Register a client with Instagram at http://instagram.com/developer/clients/manag
 Fill in these fields with:
 
 Website:            http://localhost:3001/
+
 OAuth redirect_uri: http://localhost:3001/redirect
 
 Write your client key and secret in instaleave.rb
