@@ -6,8 +6,8 @@ class Instaleave < Sinatra::Base
   MEDIA_DIR = "./media/"
 
   Instagram.configure do |config|
-    config.client_id = "9e30ba81fbd54f769b17a8cb73be322f"
-    config.client_secret = "4c83dff62be2429480ba00945715e2c2"
+    config.client_id = ""
+    config.client_secret = ""
   end
 
   get "/" do
